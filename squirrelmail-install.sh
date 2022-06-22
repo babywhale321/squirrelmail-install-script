@@ -35,10 +35,14 @@ unzip squirrelmail-webmail-1.4.22.zip
 #Moving and adding permissions to website
 mv squirrelmail-webmail-1.4.22 /var/www/html/
 mv /var/www/html/squirrelmail-webmail-1.4.22/ /var/www/html/squirrelmail
+
+#start squirrelmail cli utility / set permissions to data dir
+perl /var/www/html/squirrelmail/config/conf.pl
 chown -R www-data:www-data /var/www/html/ ; chmod -R 777 /var/www/html/
 
 #adds user defined variables to config files
 echo " <VirtualHost *:80>
+echo "<VirtualHost *:80>
 ServerAdmin $adminvar
 DocumentRoot /var/www/html/squirrelmail/
 ServerName $hostvar
@@ -50,7 +54,9 @@ allow from all
 </Directory>
 ErrorLog /var/log/apache2/$hostvar-error_log
 CustomLog /var/log/apache2/$hostvar-access_log common
-</VirtualHost>" >> /etc/apache2/sites-available/$hostvar.conf && a2ensite $hostvar.conf ; a2dissite 000-default.conf  ; apache2ctl configtest ; echo "$ipvar $hostvar" >> /etc/hosts ; systemctl reload apache2 postfix dovecot
+</VirtualHost>" > /etc/apache2/sites-available/$hostvar.conf
+
+a2ensite $hostvar.conf ; a2dissite 000-default.conf  ; apache2ctl configtest ; echo "$ipvar $hostvar" >> /etc/hosts ; systemctl restart apache2 postfix dovecot
 
 #dir creation and permision set
 mkdir -p /var/local/squirrelmail/data/ ; chmod -R 777 /var/local/squirrelmail/data
