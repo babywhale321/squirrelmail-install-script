@@ -41,7 +41,6 @@ perl /var/www/html/squirrelmail/config/conf.pl
 chown -R www-data:www-data /var/www/html/ ; chmod -R 777 /var/www/html/
 
 #adds user defined variables to config files
-echo " <VirtualHost *:80>
 echo "<VirtualHost *:80>
 ServerAdmin $adminvar
 DocumentRoot /var/www/html/squirrelmail/
