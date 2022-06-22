@@ -2,21 +2,21 @@
 
 #public ipv4 and domain
 echo "What is the public ipv4 address of your server: 192.168.0.1 = an example: "
-read ipvar
+read -r ipvar
 
 echo "What is the registerd domain name? google.com = an example: "
-read hostvar
+read -r hostvar
 
 #admin email
 echo "What will the server admin email be? admin@google.com = and example: "
-read adminvar
+read -r adminvar
 
 #timezone selection
 echo "What is your continent? America = an example: " 
-read zone1var
+read -r zone1var
 
 echo "What is your city? New_York = an example: " 
-read zone2var
+read -r zone2var
 
 echo "Installation and download will now begin"
 
@@ -57,7 +57,7 @@ mkdir -p /var/local/squirrelmail/data/ ; chmod -R 777 /var/local/squirrelmail/da
 
 #new user for webpage login gui
 echo "What is the new user for sign in page on website? bill = an example: "
-read user1
+read -r user1
 useradd $user1
 passwd $user1
 
