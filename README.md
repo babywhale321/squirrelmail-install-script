@@ -2,6 +2,10 @@
 # A simple bash script to have the basics installed on ubuntu 20.04
 # Made By: BabyWhale
 
+ Tested:
+ working on server 20.04 ubuntu iso
+ working on server 18.04 ubuntu iso
+
 Requirements:
 
 1, root access to terminal
