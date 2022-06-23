@@ -8,9 +8,10 @@ Requirements:
 
 2, atleast 512MB of RAM ( 256MB tends to crash )
 
+
 Tutorial:
 
-To tun the script please use these commands.
+To run the script please use these commands.
 
 1, apt install wget ( if you have it already installed then skip this step )
 
