@@ -3,7 +3,9 @@
 # Made By: BabyWhale
 
 Requirements:
+
 1, root access to terminal
+
 2, atleast 512MB of RAM ( 256MB tends to crash )
 
 Tutorial:
