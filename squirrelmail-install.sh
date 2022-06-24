@@ -21,12 +21,12 @@ read -r zone2var
 echo "Installation and download will now begin"
 
 #Required repo and applications to be updated and installed
-add-apt-repository ppa:ondrej/php -y ; apt-get update
-apt install -y apache2 build-essential mariadb-server mariadb-client php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-fpm php7.2-cgi php7.2-bcmath php7.2-curl php7.2-gd php7.2-intl php7.2-json php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-sqlite3 php7.2-xml php7.2-zip php7.2-snmp php7.2-imap php7.2-common php7.2-tidy php7.2-pgsql php7.2-ldap php7.2-soap php7.2-xsl php7.2-redis php7.2-xmlrpc postfix dovecot-imapd dovecot-pop3d unzip || echo "Installation Failed" exit
+apt-get update ; apt-get install software-properties-common -y ; add-apt-repository ppa:ondrej/php -y ; apt-get update || exit
+apt install -y dialog wget unzip bsdutils apache2 build-essential mariadb-server mariadb-client php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-fpm php7.2-cgi php7.2-bcmath php7.2-curl php7.2-gd php7.2-intl php7.2-json php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-sqlite3 php7.2-xml php7.2-zip php7.2-snmp php7.2-imap php7.2-common php7.2-tidy php7.2-pgsql php7.2-ldap php7.2-soap php7.2-xsl php7.2-redis php7.2-xmlrpc postfix dovecot-imapd dovecot-pop3d || exit
 
 #set timezone on apache
-a2enmod rewrite expires ; sed -i "s/;date.timezone.*/date.timezone = $zone1var\/\$zone2var/" /etc/php/*/apache2/php.ini
-systemctl start apache2 mariadb ; systemctl enable apache2 mariadb ; mysql_secure_installation
+a2enmod rewrite expires ; sed -i "s/;date.timezone.*/date.timezone = $zone1var\/\$zone2var/" /etc/php/*/apache2/php.ini || exit
+systemctl start apache2 mariadb ; systemctl enable apache2 mariadb ; mysql_secure_installation || exit
 
 #Download and unzip squirrelmail
 wget https://sourceforge.net/projects/squirrelmail/files/stable/1.4.22/squirrelmail-webmail-1.4.22.zip
@@ -55,22 +55,22 @@ ErrorLog /var/log/apache2/$hostvar-error_log
 CustomLog /var/log/apache2/$hostvar-access_log common
 </VirtualHost>" > /etc/apache2/sites-available/$hostvar.conf
 
-a2ensite $hostvar.conf ; a2dissite 000-default.conf  ; apache2ctl configtest ; echo "$ipvar $hostvar" >> /etc/hosts ; systemctl restart apache2 postfix dovecot
+a2ensite $hostvar.conf ; a2dissite 000-default.conf  ; apache2ctl configtest ; echo "$ipvar $hostvar" >> /etc/hosts ; systemctl restart apache2 postfix dovecot || exit
 
 #dir creation and permision set
 mkdir -p /var/local/squirrelmail/data/ ; chmod -R 777 /var/local/squirrelmail/data
 
 #new user for webpage login gui
 echo "What is the new user for sign in page on website? bill = an example: "
-read -r user1
-useradd $user1
-passwd $user1
+read -r uservar
+useradd $uservar
+passwd $uservar
 
 #new user defined variables creation and permissions
-mkdir /var/www/html/$user1 ; usermod -m -d /var/www/html/$user1 $user1 ; chown -R $user1:$user1 /var/www/html/$user1
+mkdir /var/www/html/$uservar ; usermod -m -d /var/www/html/$uservar $uservar ; chown -R $uservar:$uservar /var/www/html/$uservar
 
 #moves the default into the active site
-mv /var/www/html/squirrelmail/config/config_default.php config.php
+mv /var/www/html/squirrelmail/config/config_default.php config.php || exit
 
 
 echo "Please test the web page to see if everything is working."
