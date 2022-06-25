@@ -21,7 +21,7 @@ read -r zone2var
 echo "Installation and download will now begin"
 
 #Required repo and applications to be updated and installed
-apt-get update ; apt-get install software-properties-common -y ; add-apt-repository ppa:ondrej/php -y ; apt-get update || exit
+apt update ; apt upgrade -y ; apt-get install software-properties-common -y ; add-apt-repository ppa:ondrej/php -y ; apt-get update || exit
 apt install -y dialog wget unzip bsdutils apache2 build-essential mariadb-server mariadb-client php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-fpm php7.2-cgi php7.2-bcmath php7.2-curl php7.2-gd php7.2-intl php7.2-json php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-sqlite3 php7.2-xml php7.2-zip php7.2-snmp php7.2-imap php7.2-common php7.2-tidy php7.2-pgsql php7.2-ldap php7.2-soap php7.2-xsl php7.2-redis php7.2-xmlrpc postfix dovecot-imapd dovecot-pop3d || exit
 
 #set timezone on apache
