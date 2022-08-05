@@ -9,7 +9,7 @@ echo "What is the registerd domain name? google.com = an example: "
 read -r hostvar
 
 #admin email
-echo "What will the server admin email be? admin@google.com = and example: "
+echo "What will the server admin email be? admin@google.com = an example: "
 read -r adminvar
 
 #timezone selection
