@@ -19,10 +19,17 @@ read -r zone1var
 echo "What is your city? New_York = an example: " 
 read -r zone2var
 
-echo "Installation and download will now begin"
+echo ""
+echo "Please verify that everything is correct then press enter"
+echo "
+ipv4: $ipvar
+Domain: $hostvar
+admin email: $adminvar
+Timezone: $zone1var $zone2var "
+read -r emptyvar
 
 #Required repo and applications to be updated and installed
-apt update ; apt upgrade -y ; apt-get install software-properties-common -y ; add-apt-repository ppa:ondrej/php -y ; add-apt-repository ppa:ondrej/apache2 -y ; apt install dialog -y ; apt install bsdutils -y ; apt update ; apt upgrade -y || exit
+apt update ; apt upgrade -y ; apt-get install software-properties-common -y ; add-apt-repository ppa:ondrej/php -y ; add-apt-repository ppa:ondrej/apache2 -y ; apt install dialog -y ; apt install bsdutils -y || exit
 apt install -y wget unzip apache2 build-essential mariadb-server mariadb-client php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-fpm php7.2-cgi php7.2-bcmath php7.2-curl php7.2-gd php7.2-intl php7.2-json php7.2-mbstring php7.2-mysql php7.2-opcache php7.2-sqlite3 php7.2-xml php7.2-zip php7.2-snmp php7.2-imap php7.2-common php7.2-tidy php7.2-pgsql php7.2-ldap php7.2-soap php7.2-xsl php7.2-redis php7.2-xmlrpc postfix dovecot-imapd dovecot-pop3d || exit
 
 #set timezone on apache
@@ -37,8 +44,7 @@ unzip squirrelmail-webmail-1.4.22.zip
 mv squirrelmail-webmail-1.4.22 /var/www/html/
 mv /var/www/html/squirrelmail-webmail-1.4.22/ /var/www/html/squirrelmail
 
-#start squirrelmail cli utility / set permissions to data dir
-perl /var/www/html/squirrelmail/config/conf.pl
+#set permissions to data dir
 chown -R www-data:www-data /var/www/html/ ; chmod -R 777 /var/www/html/
 
 #adds user defined variables to config files
@@ -75,5 +81,4 @@ mv /var/www/html/squirrelmail/config/config_default.php config.php || exit
 
 
 echo "Please test the web page to see if everything is working."
-echo "Install Completed"
-echo "PLEASE RUN: perl /var/www/html/squirrelmail/config/conf.pl to further configure squirrelmail"
+echo "Make sure to Run: perl /var/www/html/squirrelmail/config/conf.pl to further configure squirrelmail"
