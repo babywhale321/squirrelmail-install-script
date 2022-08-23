@@ -2,14 +2,14 @@
 #Made By: BabyWhale
 
 #public ipv4 and domain
-echo "What is the public ipv4 address of your server: 192.168.0.1 = an example: "
+echo "What is the public ipv4 address of your server: 123.123.123.123 = an example: "
 read -r ipvar
 
-echo "What is the registerd domain name? google.com = an example: "
+echo "What is the registerd domain name? example.com = an example: "
 read -r hostvar
 
 #admin email
-echo "What will the server admin email be? admin@google.com = an example: "
+echo "What will the server admin email be? admin@example.com = an example: "
 read -r adminvar
 
 #timezone selection
