@@ -1,6 +1,5 @@
 # squirrelmail-install-script
-# A simple bash script to have the basics installed on ubuntu 20.04
-# Made By: BabyWhale
+A simple bash script to have the basics installed on ubuntu 20.04
 
  # Tested:
  
