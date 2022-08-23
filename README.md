@@ -1,5 +1,9 @@
 # squirrelmail-install-script
-A simple bash script to have the basics installed on ubuntu 20.04
+A simple bash script to have the basics installed on ubuntu
+
+This script installs the most recent versions of
+
+squirrelmail (1.5.2-svn) , php , apache , mariadb , postfix , dovecot
 
  # Tested:
  
