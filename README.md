@@ -3,6 +3,8 @@ A simple bash script to have the basics installed on ubuntu 20.04
 
  # Tested:
  
+ working on server 22.04 ubuntu iso
+ 
  working on server 20.04 ubuntu iso
  
  working on server 18.04 ubuntu iso
