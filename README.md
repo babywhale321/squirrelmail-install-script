@@ -29,3 +29,5 @@ To run the script please use these commands.
 
 5, Follow the prompts as they come up when running the script.
  
+Documentation:
+https://squirrelmail.org/documentation/
