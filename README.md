@@ -2,20 +2,20 @@
 # A simple bash script to have the basics installed on ubuntu 20.04
 # Made By: BabyWhale
 
- Tested:
+ # Tested:
  
  working on server 20.04 ubuntu iso
  
  working on server 18.04 ubuntu iso
 
-Requirements:
+# Requirements:
 
 1, root access to terminal
 
 2, atleast 512MB of RAM ( 256MB tends to crash )
 
 
-Tutorial:
+# Tutorial:
 
 To run the script please use these commands.
 
@@ -29,5 +29,6 @@ To run the script please use these commands.
 
 5, Follow the prompts as they come up when running the script.
  
-Documentation:
+# Documentation:
+
 https://squirrelmail.org/documentation/
