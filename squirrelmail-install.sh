@@ -41,7 +41,7 @@ svn checkout https://svn.code.sf.net/p/squirrelmail/code/trunk/squirrelmail
 mv squirrelmail /var/www/html/
 
 #set permissions to data dir
-chown -R www-data:www-data /var/www/html/ ; chmod -R 777 /var/www/html/
+chown -R www-data:www-data /var/www/html/ ; chmod -R 755 /var/www/html/
 
 #adds user defined variables to config files
 echo "<VirtualHost *:80>
@@ -61,7 +61,7 @@ CustomLog /var/log/apache2/$hostvar-access_log common
 a2ensite $hostvar.conf ; a2dissite 000-default.conf  ; apache2ctl configtest ; echo "$ipvar $hostvar" >> /etc/hosts ; systemctl restart apache2 postfix dovecot || exit
 
 #dir creation and permision set
-mkdir -p /var/local/squirrelmail/data/ ; chmod -R 777 /var/local/squirrelmail/data
+mkdir -p /var/local/squirrelmail/data/ ; chmod -R 755 /var/local/squirrelmail/data
 
 #new user for webpage login gui
 echo ""
