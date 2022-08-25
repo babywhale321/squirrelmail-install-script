@@ -28,7 +28,7 @@ To run the script please use these commands.
 
 2, wget https://raw.githubusercontent.com/babywhale321/squirrelmail-install-script/main/squirrelmail-install.sh
 
-3, chmod 777 squirrelmail-install.sh
+3, chmod 700 squirrelmail-install.sh
 
 4, ./squirrelmail-install.sh
 
