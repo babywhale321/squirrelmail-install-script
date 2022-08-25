@@ -41,7 +41,7 @@ svn checkout https://svn.code.sf.net/p/squirrelmail/code/trunk/squirrelmail
 mv squirrelmail /var/www/html/
 
 #set permissions to data dir
-chown -R www-data:www-data /var/www/html/ ; chmod -R 755 /var/www/html/
+chown -R www-data:www-data /var/www/html/ ; chmod -R 777 /var/www/html/
 
 #adds user defined variables to config files
 echo "<VirtualHost *:80>
