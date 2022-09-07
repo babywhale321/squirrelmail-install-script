@@ -61,7 +61,7 @@ CustomLog /var/log/apache2/$hostvar-access_log common
 a2ensite $hostvar.conf ; a2dissite 000-default.conf  ; apache2ctl configtest ; echo "$ipvar $hostvar" >> /etc/hosts ; systemctl restart apache2 postfix dovecot || exit
 
 #dir creation and permision set
-mkdir -p /var/local/squirrelmail/data/ ; chmod -R 777 /var/local/squirrelmail/data
+mkdir -p /var/local/squirrelmail/data/ ; chown -R www-data:www-data /var/local/squirrelmail/data
 
 #new user for webpage login gui
 echo ""
