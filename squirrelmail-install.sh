@@ -61,6 +61,7 @@ a2ensite $hostvar.conf ; a2dissite 000-default.conf ; echo "$ipvar $hostvar" >> 
 
 #dir creation and permision set
 mkdir -p /var/local/squirrelmail/data/ ; chown -R www-data:www-data /var/local/squirrelmail/data
+mkdir -p /var/local/squirrelmail/attach/ ; chown -R www-data:www-data /var/local/squirrelmail/attach
 
 #new user defined variables creation and permissions
 mkdir /var/www/html/$uservar ; usermod -m -d /var/www/html/$uservar $uservar ; chown -R $uservar:$uservar /var/www/html/$uservar || echo "An error has accoured with the creation of $uservar dir and or permissions" exit 
