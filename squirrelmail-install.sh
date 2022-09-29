@@ -28,7 +28,8 @@ Domain: $hostvar
 admin email: $adminvar 
 Webpage GUI User: $uservar "
 echo " "
-read -p "Please verify that all options are correct then press enter:"
+echo "Please verify that all options are correct then press enter:"
+read -r emptyvar
 
 #Required repo and applications to be updated and installed
 apt update ; apt upgrade -y ; apt-get install software-properties-common -y ; add-apt-repository ppa:ondrej/php -y ; add-apt-repository ppa:ondrej/apache2 -y ; apt install dialog bsdutils -y || echo "An error has accoured regarding the installation of 1 or more of these applications: software-properties-common, dialog, bsdutils" exit
