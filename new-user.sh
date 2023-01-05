@@ -2,7 +2,7 @@
 
 #new user for webpage login gui
 echo "What is the new user for sign in page on website? bill = an example: "
-read -r uservar
+read uservar
 useradd $uservar
 passwd $uservar
 
