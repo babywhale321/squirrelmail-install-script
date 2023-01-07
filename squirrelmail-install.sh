@@ -36,6 +36,9 @@ read -p "Press enter to confirm or Ctrl+C to cancel."
 #update package manager and upgrade installed packages
 apt-get update && apt-get upgrade -y | tee -a squirrelmail-install.log
 
+#update hosts file with ip and hostname
+echo "$ipvar $hostvar" >> /etc/hosts | tee -a squirrelmail-install.log
+
 #install MariaDB server and client
 apt-get install mariadb-server mariadb-client -y | tee -a squirrelmail-install.log
 
@@ -137,10 +140,9 @@ echo "An error has occurred with the config file in /etc/apache2/sites-available
 exit 1
 fi
 
-#enable site and disable default site, update hosts file, and restart required services
+#enable site and disable default site, and restart required services
 a2ensite $hostvar.conf | tee -a squirrelmail-install.log
 a2dissite 000-default.conf | tee -a squirrelmail-install.log
-echo "$ipvar $hostvar" >> /etc/hosts | tee -a squirrelmail-install.log
 systemctl restart apache2 postfix dovecot | tee -a squirrelmail-install.log
 
 #check for service and application errors
