@@ -6,6 +6,8 @@ squirrelmail (1.5.2-svn) , php , apache , mariadb , postfix , dovecot
 
  # Tested:
  
+ working on linux mint 21.1 xfce ( tested on: 2023-Jan-7 )
+ 
  working on server 22.04 ubuntu iso ( tested on: 2022-September-18 )
  
  working on server 20.04 ubuntu iso
