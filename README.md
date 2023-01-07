@@ -23,13 +23,13 @@ squirrelmail (1.5.2-svn) , php , apache , mariadb , postfix , dovecot
 
 To run this script please use these commands.
 
-1, apt install wget ( if you have it already installed then skip this step )
+1, apt install wget -y ( if you have it already installed then skip this step )
 
 2, wget https://raw.githubusercontent.com/babywhale321/squirrelmail-install-script/main/squirrelmail-install.sh
 
-3, chmod 700 squirrelmail-install.sh
+3, chmod +x squirrelmail-install.sh
 
-4, ./squirrelmail-install.sh or bash squirrelmail-install.sh
+4, sudo bash squirrelmail-install.sh or ./squirrelmail-install.sh
 
 5, Follow the prompts as they come up when running the script.
  
