@@ -76,6 +76,7 @@ fi
 #add required repositories
 add-apt-repository ppa:ondrej/php -y | tee -a squirrelmail-install.log
 add-apt-repository ppa:ondrej/apache2 -y | tee -a squirrelmail-install.log
+apt-get update && apt-get upgrade -y | tee -a squirrelmail-install.log
 
 #check for errors
 if [ $? -ne 0 ]; then
