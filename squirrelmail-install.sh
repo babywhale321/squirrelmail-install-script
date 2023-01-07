@@ -115,13 +115,12 @@ fi
 #set owner to www-data recursively
 chown -R www-data:www-data /var/www/html/ | tee -a squirrelmail-install.log
 
-#add user defined variables to config file
-cat > /etc/apache2/sites-available/$hostvar.conf << EOF
-<VirtualHost *:80>
+#adds user defined variables to config files
+echo "<VirtualHost *:80>
 ServerAdmin $adminvar
 DocumentRoot /var/www/html/squirrelmail/
 ServerName $hostvar
-<Directory /var/www/html/squirrelmail/>
+<Directory  /var/www/html/squirrelmail/>
 Options FollowSymLinks
 AllowOverride All
 Order allow,deny
@@ -129,8 +128,7 @@ allow from all
 </Directory>
 ErrorLog /var/log/apache2/$hostvar-error_log
 CustomLog /var/log/apache2/$hostvar-access_log common
-</VirtualHost>
-EOF | tee -a squirrelmail-install.log
+</VirtualHost>" > /etc/apache2/sites-available/$hostvar.conf
 
 #check for config file error
 if [ $? -ne 0 ]; then
