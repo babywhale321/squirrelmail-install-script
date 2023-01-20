@@ -31,11 +31,11 @@ fi
 
 #display summary of entered information and prompt user to confirm
 clear
-echo -e "\e[1mSummary of entered information:\e[0m" | tee -a squirrelmail-install.log
-echo -e "\e[1mIPv4 address:\e[0m $ipvar" | tee -a squirrelmail-install.log
-echo -e "\e[1mDomain:\e[0m $hostvar" | tee -a squirrelmail-install.log
-echo -e "\e[1mAdmin email:\e[0m $adminvar" | tee -a squirrelmail-install.log
-echo -e "\e[1mWebpage GUI user:\e[0m $uservar" | tee -a squirrelmail-install.log
+echo "\e[1mSummary of entered information:\e[0m" | tee -a squirrelmail-install.log
+echo "\e[1mIPv4 address:\e[0m $ipvar" | tee -a squirrelmail-install.log
+echo "\e[1mDomain:\e[0m $hostvar" | tee -a squirrelmail-install.log
+echo "\e[1mAdmin email:\e[0m $adminvar" | tee -a squirrelmail-install.log
+echo "\e[1mWebpage GUI user:\e[0m $uservar" | tee -a squirrelmail-install.log
 echo "Press enter to confirm or Ctrl+C to cancel."
 read pressstartvar
 
