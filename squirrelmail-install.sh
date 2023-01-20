@@ -3,18 +3,23 @@
 #Start of log file to output potential errors
 touch squirrelmail-install.log && chmod +rw squirrelmail-install.log
 echo "The log file from this script can be viewed at squirrelmail-install.log in this current directory"
-read -p "Press enter to start the script or Ctrl+C to cancel."
+echo "Press enter to start the script or Ctrl+C to cancel." 
+read pressstartvar
 echo "Starting.." | tee -a squirrelmail-install.log
 
 #public ipv4 and domain
-read -p "What is the public ipv4 address of your server: 123.123.123.123 = an example: " ipvar
-read -p "What is the registerd domain name? example.com = an example: " hostvar
+echo "What is the public ipv4 address of your server: 123.123.123.123 = an example: " 
+read ipvar
+echo "What is the registerd domain name? example.com = an example: " 
+read hostvar
 
 #admin email
-read -p "What will the server admin email be? admin@example.com = an example: " adminvar
+echo "What will the server admin email be? admin@example.com = an example: " 
+read adminvar
 
 #new user for webpage login gui
-read -p "Enter the new user for the sign in page: " uservar
+echo "Enter the new user for the sign in page: " 
+read uservar
 useradd $uservar
 passwd $uservar
 
@@ -31,7 +36,8 @@ echo -e "\e[1mIPv4 address:\e[0m $ipvar" | tee -a squirrelmail-install.log
 echo -e "\e[1mDomain:\e[0m $hostvar" | tee -a squirrelmail-install.log
 echo -e "\e[1mAdmin email:\e[0m $adminvar" | tee -a squirrelmail-install.log
 echo -e "\e[1mWebpage GUI user:\e[0m $uservar" | tee -a squirrelmail-install.log
-read -p "Press enter to confirm or Ctrl+C to cancel."
+echo "Press enter to confirm or Ctrl+C to cancel."
+read pressstartvar
 
 #update package manager and upgrade installed packages
 apt-get update && apt-get upgrade -y | tee -a squirrelmail-install.log
